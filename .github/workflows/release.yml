@@ -1,0 +1,39 @@
+name: Release New Version
+
+on:
+  push:
+    paths:
+      - 'meta.json'
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version from meta.json
+        id: get_version
+        run: echo "VERSION=$(jq -r .version meta.json)" >> $GITHUB_OUTPUT
+
+      - name: Update README
+        run: |
+          sed -i 's|download/v[0-9.]\+/|download/v${{ steps.get_version.outputs.VERSION }}/|g' README.md
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add README.md
+          git commit -m "Update README with new version ${{ steps.get_version.outputs.VERSION }}"
+          git push
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
+          draft: false
+          prerelease: false
