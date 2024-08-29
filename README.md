@@ -43,3 +43,16 @@ This will execute the SSH Migration tool and guide you through the migration pro
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+# Changelog
+
+## 1.0.1
+
+- Add meta.json to store the version and other metadata.
+- Refactor the code to use the meta.json file.
+- Checksum the files and verify after download.
+- Check if the website is empty before starting the migration.
+
+## 1.0.0
+
+- Initial release
