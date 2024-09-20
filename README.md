@@ -2,6 +2,8 @@
 
 Note: This is alpha version, under heavy testing and development. You are welcome to try it out and provide feedback via [GitHub Issues](https://github.com/InstaWP/ssh-migration/issues).
 
+Watch Demo - https://www.youtube.com/watch?v=0a-nOuThBvY
+
 ## Source Server
 
 To use the InstaWP SSH Migration tool, you'll need to download the PHAR file. You can do this easily with the following one-liner command:
