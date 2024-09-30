@@ -4,6 +4,7 @@ Note: This is alpha version, under heavy testing and development. You are welcom
 
 Watch Demo - https://www.youtube.com/watch?v=0a-nOuThBvY
 
+
 ## Source Server
 
 To use the InstaWP SSH Migration tool, you'll need to download the PHAR file. You can do this easily with the following one-liner command:
@@ -11,6 +12,8 @@ To use the InstaWP SSH Migration tool, you'll need to download the PHAR file. Yo
 ```bash
 curl -sSL https://github.com/InstaWP/ssh-migration/releases/download/latest/source.phar -o source.phar && php source.phar
 ```
+
+_Note: If the size of the source files are large, it is advisable to use screen or tmux to run the command in the background._
 
 It will upload your entire website to the InstaWP cloud storage and output the backup_id.
 
