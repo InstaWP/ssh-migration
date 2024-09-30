@@ -17,6 +17,10 @@ _Note: If the size of the source files are large, it is advisable to use screen 
 
 It will upload your entire website to the InstaWP cloud storage and output the backup_id.
 
+**Options:**
+
+- `--exclude-paths`: This option allows you to exclude specific paths from the migration. You can specify multiple paths, and each path should be separated by a comma. For example: `--exclude-paths=/wp-content/uploads,/wp-content/cache`.
+
 ## Destination Server
 
 To download the destination server PHAR file, you can use the following command:
