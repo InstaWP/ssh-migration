@@ -50,6 +50,11 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 # Changelog
 
+## 1.0.2
+
+- Checksum verification issue
+- Fixed corner cases for memory and chunked upload/download.
+
 ## 1.0.1
 
 - Add meta.json to store the version and other metadata.
