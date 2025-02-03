@@ -19,7 +19,11 @@ It will upload your entire website to the InstaWP cloud storage and output the b
 
 **Options:**
 
-- `--exclude-paths`: This option allows you to exclude specific paths from the migration. You can specify multiple paths, and each path should be separated by a comma. For example: `--exclude-paths=/wp-content/uploads,/wp-content/cache`.
+- `--exclude-paths=PATHS`: Comma-separated list of paths to exclude from the migration. Supports wildcards (*) for matching multiple files or folders. Example: `--exclude-paths=folder1,folder2/*,wp-content/plugins/some-plugin*`
+- `--files_zip_path=PATH`: Use an existing files zip instead of creating a new one. Example: `--files_zip_path=/path/to/files.zip`
+- `--db_zip_path=PATH`: Use an existing database zip instead of creating a new one. Example: `--db_zip_path=/path/to/db.zip`
+- `--debug-upload=FILE`: Upload a specific file to S3 for testing purposes. Example: `--debug-upload=/path/to/file.zip`
+- `--help` or `-h`: Display usage information and available options
 
 ## Destination Server
 
@@ -28,6 +32,14 @@ To download the destination server PHAR file, you can use the following command:
 ```bash
 curl -sSL https://github.com/InstaWP/ssh-migration/releases/download/latest/dest.phar -o dest.phar && php dest.phar
 ```
+
+The destination server script accepts the same options as the source server script:
+
+- `--exclude-paths=PATHS`: Comma-separated list of paths to exclude
+- `--files_zip_path=PATH`: Use an existing files zip
+- `--db_zip_path=PATH`: Use an existing database zip
+- `--debug-upload=FILE`: Test file upload functionality
+- `--help` or `-h`: Display usage information
 
 ## Manual Download and Execution
 
@@ -49,6 +61,12 @@ This will execute the SSH Migration tool and guide you through the migration pro
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 # Changelog
+
+## 1.0.3 (3 Feb 2025)
+
+- Added support for large files (over 2GB)
+- Added support for `--files_zip_path` and `--db_zip_path` options
+- Added support for `--debug-upload` option
 
 ## 1.0.2
 
